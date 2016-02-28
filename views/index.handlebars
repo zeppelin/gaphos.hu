@@ -1,4 +1,39 @@
+<div class="container">
+  <header class="masthead">
+    <h1>{{title}}</h1>
 
+    <div class="masthead-nav-items">
+      <a href="#">Contact Info</a>
+    </div>
+  </header>
 
-  <h1>{{title }}</h1>
-  <p>Welcome to {{title }}</p>
+  <div class="hero-image">
+    <img src="http://unsplash.it/1200/500?image=870" class="img-responsive">
+  </div>
+
+  <div class="engineering-info">
+    <p>Looking for Gaphos Engineering? <a href="#">Click here for more info!</a></p>
+  </div>
+
+  {{#each galleries as |gallery|}}
+    <div class="photo-grid-title">
+      <h3>{{gallery.title}}</h3>
+    </div>
+
+    <div class="photo-grid clearfix" data-layout="9">
+      {{#each gallery.photos as |photo|}}
+        <div class="item" data-w="{{photo.thumbnailWidth}}" data-h="{{photo.thumbnailHeight}}">
+          <a href="{{photo.url}}" data-size="{{photo.width}}x{{photo.height}}">
+            <img class="lofasz" src="{{photo.thumbnailUrl}}" alt="{{photo.title}}">
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+
+  <footer>
+    <p><small>&copy; Gaphos Media 2016. All rights reserved.</small></p>
+  </footer>
+</div>
+
+{{> photoswipe}}
